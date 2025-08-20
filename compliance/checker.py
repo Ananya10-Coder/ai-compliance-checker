@@ -1,5 +1,5 @@
 from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_core.document_loaders import TextLoader
+from langchain.document_loaders import TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from compliance.retriever import get_retriever
 from langchain_community.vectorstores import Chroma
