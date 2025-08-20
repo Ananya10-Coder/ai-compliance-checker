@@ -1,0 +1,3 @@
+gdpr-1: User data must be deleted upon request.
+gdpr-2: Personal data cannot be shared without consent.
+nist-1: All passwords must be at least 12 characters long.

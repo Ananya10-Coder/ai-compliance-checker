@@ -1,0 +1,10 @@
+langchain
+langgraph
+langserve
+langsmith
+fastapi
+uvicorn
+pydantic
+chromadb      # for vector database
+tiktoken        # tokenizer (for OpenAI models)
+python-dotenv   # for managing API keys
