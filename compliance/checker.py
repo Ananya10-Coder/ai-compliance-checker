@@ -1,5 +1,5 @@
 from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain.document_loaders import TextLoader
+from langchain_community.document_loaders import TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from compliance.retriever import get_retriever
 from langchain_community.vectorstores import Chroma
@@ -24,9 +24,10 @@ def check_compliance(file_path):
     project_retriever = temp_vdb.as_retriever(search_kwargs={"k":3})
     policy_retriever = get_retriever()
     results = []
-    for chunk in chunks:
+    for idx, chunk in enumerate(chunks, start = 1):
         relevant_rules = policy_retriever.get_relevant_documents(chunk.page_content)
         results.append({
+            "chunk_id": idx,
             "text": chunk.page_content,
             "violations": [r.page_content for r in relevant_rules]
         })
