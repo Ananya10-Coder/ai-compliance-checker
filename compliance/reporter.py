@@ -1,12 +1,14 @@
 import os
 import sys
 import json
+from dotenv import load_dotenv
 import re
 from typing import Dict, Any, List
 from langchain_groq import ChatGroq
 from langchain_core.messages import SystemMessage, HumanMessage
 from .checker import check_compliance
 
+load_dotenv()
 def safe_parse_json(text:str) -> Dict[str, Any]:
     """
     Safely parse JSON from LLM output.
@@ -48,7 +50,7 @@ def generate_report(file_path: str):
         violations_text = "No policy violations were detected in the document."
     
     llm = ChatGroq(
-        api_key = "REMOVED",
+        api_key = os.getenv("GROQ_API_KEY"),
         model = "llama3-8b-8192"
     )
 
