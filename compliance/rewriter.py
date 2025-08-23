@@ -74,9 +74,3 @@ def rewrite_document(file_path: str) -> str:
     """
     response = llm.invoke(prompt)
     return response.content
-
-if __name__ == "__main__":
-    file_path = "data/projects/test_report.txt" 
-    rewritten_document = rewrite_document(file_path)
-    print(rewritten_document)
-
